@@ -4,16 +4,11 @@ node {
       sh 'mvn clean package -DskipTests'
   }
   stage('Create Docker Image') {
-    dir('webapp') {
       docker.build("msingh1984/mrt-hibernate-app:${env.BUILD_NUMBER}")
-    }
-  }
-
+   }
   stage ('Run Application') {
     try {
-      dir ('webapp') {
-        sh 'mvn exec:java -DskipTests'
-      }
+      //  sh 'mvn exec:java -DskipTests'
     } catch (error) {
     } finally {
       // Stop and remove database container here
@@ -24,10 +19,8 @@ node {
 
   stage('Run Tests') {
     try {
-      dir('webapp') {
         sh "mvn test"
         docker.build("msingh1984/mrt-hibernate-app:${env.BUILD_NUMBER}").push()
-      }
     } catch (error) {
 
     } finally {
