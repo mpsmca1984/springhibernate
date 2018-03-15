@@ -20,11 +20,11 @@ node {
 
   stage('Run Tests') {
     try {
-       echo 'Runnign test'
-      //  sh "mvn test"
+       echo 'Starting functional unit testing...'
+        sh "mvn test"
       //  docker.build("msingh1984/mrt-hibernate-app:${env.BUILD_NUMBER}").push()
      } catch (error) {
-
+	
     } finally {
       //junit '**/target/surefire-reports/*.xml'
     }
