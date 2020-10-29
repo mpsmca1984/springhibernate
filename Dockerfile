@@ -21,8 +21,8 @@ MAINTAINER mpsmca1984@gmail.com
 EXPOSE 8081
 
 #default command
-CMD java -jar /data/mrt-hibernate-app.jar
+CMD java -jar /data/mrt-hibernate-app-0.0.1-SNAPSHOT.jar
 
 #copy mrt-hibernate-app.jar to docker image from builder image
 
-COPY --from=maven_build /tmp/target/mrt-hibernate-app.jar /data/mrt-hibernate-app.jar
+COPY --from=maven_build /tmp/target/mrt-hibernate-app-0.0.1-SNAPSHOT.jar /data/mrt-hibernate-app-0.0.1-SNAPSHOT.jar
