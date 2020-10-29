@@ -10,6 +10,7 @@ public class MrtHibernateApp implements CommandLineRunner {
 		SpringApplication.run(MrtHibernateApp.class, args);
 	}
 
+
 	@Override
 	public void run(String... args) throws Exception {
 	/*	Employee e=new Employee();
